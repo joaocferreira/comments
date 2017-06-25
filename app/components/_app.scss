@@ -1,0 +1,15 @@
+body {
+    font-family: 'Cutive Mono', monospace;
+}
+
+.font--Kaushan {
+    font-family: 'Kaushan Script', cursive;
+}
+
+.comments{
+    &__input {
+        height: 38px;
+        line-height: 38px;
+        box-sizing: border-box;
+    }
+}

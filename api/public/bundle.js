@@ -30635,38 +30635,137 @@ var Comments = function Comments(props) {
         'div',
         null,
         _react2.default.createElement(
-            'h2',
-            null,
-            'comments'
-        ),
-        _react2.default.createElement(
-            'p',
-            null,
-            state.user.name
-        ),
-        _react2.default.createElement(
-            'ul',
-            { id: 'messages' },
-            state.comments && state.comments.map(function (comment, idx) {
-                var self = {
-                    comment: comment,
-                    myUser: state.user.name
-                };
-                return _react2.default.createElement(_commentContainer2.default, { key: idx, self: self });
-            })
-        ),
-        _react2.default.createElement(
-            'form',
-            { action: '' },
-            _react2.default.createElement('input', {
-                type: 'text',
-                value: state.inputValue,
-                className: 'comments__input',
-                onChange: props.handleChange }),
+            'nav',
+            { className: 'nav blue accent-2' },
             _react2.default.createElement(
-                'button',
-                { onClick: props.submitComment },
-                'Send'
+                'div',
+                { className: 'nav-wrapper' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'container' },
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('span', { className: 'lnr lnr-users' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('span', { className: 'lnr lnr-menu' })
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'ul',
+                        { className: 'right' },
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('span', { className: 'lnr lnr-calendar-full' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('span', { className: 'lnr lnr-phone' })
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'li',
+                            null,
+                            _react2.default.createElement(
+                                'a',
+                                { href: '#' },
+                                _react2.default.createElement('img', { src: 'http://pngimg.com/uploads/face/face_PNG5669.png', alt: '', className: 'user__img circle responsive-img' })
+                            )
+                        )
+                    )
+                )
+            )
+        ),
+        _react2.default.createElement(
+            'div',
+            { className: 'container' },
+            _react2.default.createElement(
+                'div',
+                { className: 'card' },
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card-content grey lighten-4 comments__header' },
+                    _react2.default.createElement(
+                        'p',
+                        null,
+                        state.user.name
+                    ),
+                    _react2.default.createElement(
+                        'a',
+                        { className: 'btn-floating btn-large halfway-fab green lighten-1' },
+                        _react2.default.createElement(
+                            'i',
+                            { className: 'material-icons' },
+                            'chat_bubble_outline'
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card-content' },
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement('div', { className: 'divider' }),
+                    _react2.default.createElement(
+                        'ul',
+                        { id: 'messages' },
+                        state.comments && state.comments.map(function (comment, idx) {
+                            var self = {
+                                comment: comment,
+                                myUser: state.user.name
+                            };
+                            return _react2.default.createElement(_commentContainer2.default, { key: idx, self: self });
+                        })
+                    )
+                ),
+                _react2.default.createElement(
+                    'form',
+                    { action: '', className: 'card-content grey lighten-4' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'row' },
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col s10' },
+                            _react2.default.createElement('input', {
+                                type: 'text',
+                                value: state.inputValue,
+                                className: 'comments__input',
+                                onChange: props.handleChange })
+                        ),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'col s2' },
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: props.submitComment, className: 'btn waves-effect waves-light blue accent-2' },
+                                'Send'
+                            )
+                        )
+                    )
+                )
             )
         )
     );
@@ -30752,19 +30851,32 @@ var Comment = function Comment(props) {
     var canIEdit = isMyComment && now - comment.time <= 5000 * 60;
     return _react2.default.createElement(
         'li',
-        { className: 'lnr ' + (isMyComment ? 'lnr-user' : 'lnr-earth') },
+        { className: 'row' },
+        _react2.default.createElement('span', { className: 'col s1 lnr ' + (isMyComment ? 'lnr-user' : 'lnr-earth') }),
         _react2.default.createElement(
             'span',
-            null,
-            comment.user
+            { className: 'col s8' },
+            _react2.default.createElement(
+                'p',
+                null,
+                _react2.default.createElement(
+                    'strong',
+                    null,
+                    comment.user
+                )
+            ),
+            _react2.default.createElement(
+                'p',
+                null,
+                comment.comment
+            )
         ),
-        comment.comment,
         _react2.default.createElement(
             'i',
-            null,
+            { className: 'col s2' },
             new Date(comment.time).toLocaleTimeString()
         ),
-        canIEdit ? _react2.default.createElement('span', { className: 'lnr lnr-pencil' }) : ''
+        canIEdit ? _react2.default.createElement('span', { className: 'col s1 lnr lnr-pencil' }) : ''
     );
 };
 

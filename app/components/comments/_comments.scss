@@ -1,0 +1,39 @@
+.nav {
+    overflow: hidden;
+}
+
+.user__img {
+    max-height: 34px;
+    padding-top: 15px;
+    box-sizing: content-box;
+}
+.card {
+    margin-top: 5%;
+}
+.comments__header {
+    position: relative;
+}
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #448AFF;
+     box-shadow: 0 1px 0 0 #448AFF;
+   }
+strong {
+    font-weight: bolder;
+    font-size: 18px;
+}
+.divider {
+    margin-bottom: 15px;
+}
+#messages .row {
+    p {
+        margin-bottom: 5px;
+    }
+    .s8 {
+        margin-bottom: 10px;
+    }
+    &:after {
+        height: 1px;
+        background-color: #e0e0e0;
+        width: 100%;
+    }
+}
